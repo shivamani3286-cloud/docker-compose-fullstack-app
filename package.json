@@ -1,0 +1,15 @@
+{
+  "name": "docker-compose-fullstack-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple full-stack message board using Node.js, Express, MongoDB, Docker and Docker Compose.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0"
+  }
+}

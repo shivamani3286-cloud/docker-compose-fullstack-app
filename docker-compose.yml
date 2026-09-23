@@ -1,0 +1,43 @@
+services:
+  app:
+    container_name: fullstack-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: 3000
+      MONGO_URI: mongodb://mongo:27017/${MONGO_DB:-messageboard}
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - fullstack-network
+
+  mongo:
+    container_name: fullstack-mongo
+    image: mongo:8.0
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_DB:-messageboard}
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --quiet --eval \"db.adminCommand('ping').ok\" | grep 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - fullstack-network
+
+volumes:
+  mongo_data:
+    name: fullstack-mongo-data
+
+networks:
+  fullstack-network:
+    name: fullstack-network

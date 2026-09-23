@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker Message Board</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Docker + Docker Compose</p>
+      <h1>Message Board</h1>
+      <p>Node.js + Express + MongoDB running as containerized services.</p>
+      <span id="status" class="status">Checking database...</span>
+    </section>
+
+    <section class="card">
+      <h2>Add a message</h2>
+      <form id="message-form">
+        <input id="name" name="name" placeholder="Your name" maxlength="60" required>
+        <textarea id="message" name="message" placeholder="Write a message..." maxlength="500" required></textarea>
+        <button type="submit">Save message</button>
+      </form>
+      <p id="error" class="error"></p>
+    </section>
+
+    <section class="card">
+      <h2>Recent messages</h2>
+      <div id="messages">Loading...</div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
