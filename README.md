@@ -109,7 +109,7 @@ Open:
 http://localhost:3000
 ```
 <p align="center">
-  <img src="screenshots/browser-doocker.png" alt="Terraform Apply Result" width="100%">
+  <img src="screenshots/browser-docker.png" alt="Terraform Apply Result" width="100%">
 </p>
 
 Health endpoint:
