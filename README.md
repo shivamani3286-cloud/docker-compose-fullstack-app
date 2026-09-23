@@ -90,12 +90,10 @@ From the project root:
 
 ```bash
 docker compose up --build
-
+```
 <p align="center">
   <img src="screenshots/docker-compose.png" alt="Terraform Apply Result" width="100%">
 </p>
-
-```
 
 This single command builds the Node.js image and starts both services.
 
@@ -110,6 +108,9 @@ Open:
 ```text
 http://localhost:3000
 ```
+<p align="center">
+  <img src="screenshots/browser-doocker.png" alt="Terraform Apply Result" width="100%">
+</p>
 
 Health endpoint:
 
@@ -122,6 +123,9 @@ http://localhost:3000/health
 ```bash
 docker ps
 ```
+<p align="center">
+  <img src="screenshots/docker-ps.png" alt="Terraform Apply Result" width="100%">
+</p>
 
 You should see:
 
