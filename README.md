@@ -90,6 +90,11 @@ From the project root:
 
 ```bash
 docker compose up --build
+
+<p align="center">
+  <img src="screenshots/docker-compose.png" alt="Terraform Apply Result" width="100%">
+</p>
+
 ```
 
 This single command builds the Node.js image and starts both services.
