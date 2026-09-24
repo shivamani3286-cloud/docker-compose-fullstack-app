@@ -40,7 +40,7 @@ The browser communicates with the Express application. The Express container com
 Install:
 
 1. Docker Desktop (Windows/macOS) or Docker Engine + Docker Compose plugin (Linux)
-2. Git
+2. Git  
 
 Verify:
 
