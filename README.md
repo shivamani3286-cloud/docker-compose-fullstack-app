@@ -104,10 +104,6 @@ From the project root, create the environment file:
 ```bash
 cp .env.example .env
 ```
-<p align="center">
-  <img src="screenshots/docker-compose.png" alt="Docker Compose Startup" width="100%">
-</p>
-
 This single command builds the Node.js image and starts both services.
 
 Run in detached mode:
@@ -121,10 +117,6 @@ Open:
 ```text
 http://localhost:3000
 ```
-<p align="center">
-  <img src="screenshots/browser-docker.png" alt="Full-Stack Application in Browser" width="100%">
-</p>
-
 Health endpoint:
 
 ```text
@@ -136,10 +128,6 @@ http://localhost:3000/health
 ```bash
 docker ps
 ```
-<p align="center">
-  <img src="screenshots/docker-ps.png" alt="Running Docker Containers" width="100%">
-</p>
-
 You should see:
 
 - `fullstack-app`
