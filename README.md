@@ -40,7 +40,7 @@ The browser communicates with the Express application. The Express container com
 Install:
 
 1. Docker Desktop (Windows/macOS) or Docker Engine + Docker Compose plugin (Linux)
-2. Git
+2. Git  
 
 Verify:
 
@@ -91,6 +91,9 @@ From the project root:
 ```bash
 docker compose up --build
 ```
+<p align="center">
+  <img src="screenshots/docker-compose.png" alt="Docker Compose Startup" width="100%">
+</p>
 
 This single command builds the Node.js image and starts both services.
 
@@ -105,6 +108,9 @@ Open:
 ```text
 http://localhost:3000
 ```
+<p align="center">
+  <img src="screenshots/browser-docker.png" alt="Full-Stack Application in Browser" width="100%">
+</p>
 
 Health endpoint:
 
@@ -117,6 +123,9 @@ http://localhost:3000/health
 ```bash
 docker ps
 ```
+<p align="center">
+  <img src="screenshots/docker-ps.png" alt="Running Docker Containers" width="100%">
+</p>
 
 You should see:
 
