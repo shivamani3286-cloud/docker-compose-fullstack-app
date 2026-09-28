@@ -83,7 +83,10 @@ Create the `.env` file from the provided example:
 
 ```bash
 cp .env.example .env
+```
+
 Edit the `.env` file and set a strong MongoDB password before starting the application.
+
 ```env
 APP_PORT=3000
 NODE_ENV=production
