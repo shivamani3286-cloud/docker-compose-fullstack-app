@@ -77,8 +77,6 @@ docker-compose-fullstack-app/
 
 ## Environment Variables
 
-## Run the Application
-
 From the project root, create the environment file:
 
 ```bash
@@ -103,6 +101,9 @@ From the project root, create the environment file:
 
 ```bash
 cp .env.example .env
+```
+```bash
+docker compose up --build
 ```
 This single command builds the Node.js image and starts both services.
 
@@ -186,14 +187,3 @@ docker compose down -v
 - Configuration is supplied through environment variables.
 - `.env` is excluded from Git.
 - Containers use meaningful names and restart policies.
-
-
-Then:
-
-```bash
-git init
-git add .
-git commit ...
-git branch -M main
-git remote add origin ...
-```
