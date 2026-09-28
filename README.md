@@ -103,4 +103,5 @@ cp .env.example .env
 Edit `.env` and set a strong MongoDB password:
 
 ```env
+password
 ```
