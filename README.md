@@ -96,10 +96,10 @@ Do **not** commit `.env` to GitHub. It is excluded through `.gitignore`.
 
 ## Run the Application
 
-From the project root:
+From the project root, create the environment file:
 
 ```bash
-docker compose up --build
+cp .env.example .env
 ```
 <p align="center">
   <img src="screenshots/docker-compose.png" alt="Docker Compose Startup" width="100%">
