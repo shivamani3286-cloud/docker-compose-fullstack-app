@@ -1,56 +1,56 @@
 # Docker Compose Full-Stack Message Board
 
-A simple full-stack application containerized with **Docker** and **Docker Compose**.
+A simple full-stack message board application containerized using **Docker** and **Docker Compose**.
 
-- **Frontend:** HTML, CSS and JavaScript served by Express
-- **Backend:** Node.js + Express
-- **Database:** MongoDB
-- **Orchestration:** Docker Compose
-- **Persistence:** Named Docker volume for MongoDB
+The project demonstrates how to containerize a Node.js/Express application and connect it to MongoDB using Docker Compose, environment variables, health checks, networking, and persistent storage.
 
-## Project Architecture
+## Project Overview
+
+* **Frontend:** HTML, CSS, and JavaScript
+* **Backend:** Node.js + Express
+* **Database:** MongoDB 8
+* **Containerization:** Docker
+* **Orchestration:** Docker Compose
+* **Database Persistence:** Named Docker volume
+* **Application Port:** 3000
+
+## Architecture
 
 ```text
-                    Browser
-                       |
-                       | http://localhost:3000
-                       v
-              +-------------------+
-              |   fullstack-app   |
-              | Node.js + Express |
-              |  Port 3000        |
-              +---------+---------+
-                        |
-                        | mongodb://<username>:<password>@mongo:27017/messageboard?authSource=admin
-                        v
-              +-------------------+
-              |  fullstack-mongo  |
-              |    MongoDB 8      |
-              +---------+---------+
-                        |
-                        v
-                fullstack-mongo-data
-                   Docker volume
+                         Browser
+                            |
+                            | HTTP :3000
+                            v
+                 +----------------------+
+                 |    fullstack-app     |
+                 |   Node.js + Express  |
+                 |      Port 3000       |
+                 +----------+-----------+
+                            |
+                            | MongoDB
+                            | Docker network
+                            v
+                 +----------------------+
+                 |    fullstack-mongo   |
+                 |      MongoDB 8       |
+                 |      Port 27017      |
+                 +----------+-----------+
+                            |
+                            v
+                 +----------------------+
+                 | fullstack-mongo-data |
+                 |   Docker Named       |
+                 |      Volume          |
+                 +----------------------+
 ```
 
-The browser communicates with the Express application. The Express container communicates with MongoDB over the private Docker Compose network using the service name `mongo`. MongoDB data is stored in the named volume `fullstack-mongo-data`, so removing/recreating containers does not remove the database data.
+The browser communicates with the Node.js/Express application through port `3000`.
 
-## Prerequisites
+The application communicates with MongoDB using the Docker Compose service name `mongo` over the private Docker network.
 
-Install:
+MongoDB stores its data in the named volume `fullstack-mongo-data`, allowing database data to persist when containers are stopped or recreated.
 
-1. Docker Desktop (Windows/macOS) or Docker Engine + Docker Compose plugin (Linux)
-2. Git  
-
-Verify:
-
-```bash
-docker --version
-docker compose version
-git --version
-```
-
-## Folder Structure
+## Project Structure
 
 ```text
 docker-compose-fullstack-app/
@@ -75,115 +75,37 @@ docker-compose-fullstack-app/
 └── README.md
 ```
 
+## Prerequisites
+
+Install the following:
+
+* Docker Desktop on Windows/macOS, or Docker Engine with Docker Compose on Linux
+* Git
+
+Verify the installation:
+
+```bash
+docker --version
+docker compose version
+git --version
+```
+
 ## Environment Variables
 
-From the project root, create the environment file:
+The project uses environment variables through a `.env` file.
+
+Create the `.env` file from the provided example:
 
 ```bash
 cp .env.example .env
 ```
 
-Edit the `.env` file and set a strong MongoDB password before starting the application.
+Edit `.env` and set a strong MongoDB password:
 
 ```env
 APP_PORT=3000
 NODE_ENV=production
 MONGO_DB=messageboard
 MONGO_ROOT_USERNAME=admin
-MONGO_ROOT_PASSWORD=your_secure_password_here
+MONGO_ROOT_PASSWORD=your_sec_
 ```
-
-Do **not** commit `.env` to GitHub. It is excluded through `.gitignore`.
-
-## Run the Application
-
-From the project root, create the environment file:
-
-```bash
-cp .env.example .env
-```
-```bash
-docker compose up --build
-```
-This single command builds the Node.js image and starts both services.
-
-Run in detached mode:
-
-```bash
-docker compose up --build -d
-```
-
-Open:
-
-```text
-http://localhost:3000
-```
-Health endpoint:
-
-```text
-http://localhost:3000/health
-```
-
-## Verify Containers
-
-```bash
-docker ps
-```
-You should see:
-
-- `fullstack-app`
-- `fullstack-mongo`
-
-Check service logs:
-
-```bash
-docker compose logs -f
-```
-
-Check only the application:
-
-```bash
-docker compose logs -f app
-```
-
-Check MongoDB:
-
-```bash
-docker compose logs -f mongo
-```
-
-## Stop the Application
-
-Stop containers without deleting them:
-
-```bash
-docker compose stop
-```
-
-Stop and remove containers/network:
-
-```bash
-docker compose down
-```
-
-Remove containers and the persistent database volume too:
-
-```bash
-docker compose down -v
-```
-
-> `docker compose down -v` permanently removes the MongoDB data stored in the Compose volume.
-
-## Docker Best Practices Used
-
-- Small `node:22-alpine` base image.
-- Dependencies are installed before application source to improve layer caching.
-- Production dependency installation with `npm ci --omit=dev` for reproducible builds.
-- Application runs as the non-root `node` user.
-- MongoDB data uses a named persistent volume.
-- Services communicate through a dedicated Docker network.
-- `depends_on` waits for MongoDB health before starting the application.
-- Health checks are configured for both the application and database.
-- Configuration is supplied through environment variables.
-- `.env` is excluded from Git.
-- Containers use meaningful names and restart policies.
