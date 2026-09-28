@@ -21,7 +21,7 @@ A simple full-stack application containerized with **Docker** and **Docker Compo
               |  Port 3000        |
               +---------+---------+
                         |
-                        | mongodb://mongo:27017/messageboard
+                        | mongodb://<username>:<password>@mongo:27017/messageboard?authSource=admin
                         v
               +-------------------+
               |  fullstack-mongo  |
@@ -77,7 +77,12 @@ docker-compose-fullstack-app/
 
 ## Environment Variables
 
-The project uses a `.env` file:
+The application uses environment variables through a `.env` file.
+
+Create the `.env` file from the provided example:
+
+```bash
+cp .env.example .en
 
 ```env
 APP_PORT=3000
