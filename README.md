@@ -82,8 +82,8 @@ The application uses environment variables through a `.env` file.
 Create the `.env` file from the provided example:
 
 ```bash
-cp .env.example .en
-
+cp .env.example .env
+Edit the `.env` file and set a strong MongoDB password before starting the application.
 ```env
 APP_PORT=3000
 NODE_ENV=production
@@ -186,7 +186,7 @@ docker compose down -v
 
 - Small `node:22-alpine` base image.
 - Dependencies are installed before application source to improve layer caching.
-- Production dependency installation with `npm install --omit=dev`.
+- Production dependency installation with `npm ci --omit=dev` for reproducible builds.
 - Application runs as the non-root `node` user.
 - MongoDB data uses a named persistent volume.
 - Services communicate through a dedicated Docker network.
