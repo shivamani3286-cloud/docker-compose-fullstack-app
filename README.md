@@ -77,9 +77,9 @@ docker-compose-fullstack-app/
 
 ## Environment Variables
 
-The application uses environment variables through a `.env` file.
+## Run the Application
 
-Create the `.env` file from the provided example:
+From the project root, create the environment file:
 
 ```bash
 cp .env.example .env
@@ -187,23 +187,6 @@ docker compose down -v
 - `.env` is excluded from Git.
 - Containers use meaningful names and restart policies.
 
-## Screenshots
-
-Capture the required screenshots after running the project locally:
-
-1. Successful `docker compose up --build`
-2. `docker ps` showing both containers
-3. Browser showing `http://localhost:3000`
-
-Place the screenshots inside `screenshots/` before pushing to GitHub.
-
-## GitHub
-
-Create a repository named:
-
-```text
-docker-compose-fullstack-app
-```
 
 Then:
 
