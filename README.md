@@ -214,8 +214,7 @@ Then:
 ```bash
 git init
 git add .
-git commit -m "Containerize full-stack app with Docker Compose"
+git commit ...
 git branch -M main
-git remote add origin https://github.com/<YOUR_USERNAME>/docker-compose-fullstack-app.git
-git push -u origin main
+git remote add origin ...
 ```
