@@ -59,16 +59,19 @@ docker-compose-fullstack-app/
 │   ├── index.html
 │   └── styles.css
 ├── screenshots/
-│   └── README.md
+│   ├── browser-docker.png
+│   ├── docker-compose.png
+│   └── docker-ps.png
 ├── src/
 │   └── server.js
-├── .env
+├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── ARCHITECTURE.md
 ├── docker-compose.yml
 ├── Dockerfile
 ├── package.json
-├── ARCHITECTURE.md
+├── package-lock.json
 └── README.md
 ```
 
@@ -80,6 +83,8 @@ The project uses a `.env` file:
 APP_PORT=3000
 NODE_ENV=production
 MONGO_DB=messageboard
+MONGO_ROOT_USERNAME=admin
+MONGO_ROOT_PASSWORD=your_secure_password_here
 ```
 
 Do **not** commit `.env` to GitHub. It is excluded through `.gitignore`.
