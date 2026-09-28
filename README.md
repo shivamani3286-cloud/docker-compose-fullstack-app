@@ -103,9 +103,4 @@ cp .env.example .env
 Edit `.env` and set a strong MongoDB password:
 
 ```env
-APP_PORT=3000
-NODE_ENV=production
-MONGO_DB=messageboard
-MONGO_ROOT_USERNAME=admin
-MONGO_ROOT_PASSWORD=your_sec_
 ```
