@@ -726,7 +726,7 @@ Shows the successful Docker Compose build and startup.
 
 Shows the application and MongoDB containers running successfully.
 
-![Docker Containers](screenshots/docker-ps.png)
+![Docker Containers](screenshots/deployment.png)
 
 ---
 
@@ -734,7 +734,7 @@ Shows the application and MongoDB containers running successfully.
 
 Shows the Message Board application running successfully in the browser.
 
-![Application](screenshots/browser-docker.png)
+![Application](screenshots/browser.png)
 
 ---
 
@@ -742,7 +742,7 @@ Shows the Message Board application running successfully in the browser.
 
 Shows a message remaining available after stopping and starting the containers again.
 
-![Database Persistence](screenshots/docker-persistence.png)
+![Database Persistence](screenshots/persistence.png)
 
 ---
 
